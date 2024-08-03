@@ -1,0 +1,18 @@
+create table task(task_id int primary key,name varchar(50));
+insert into task(task_id,name) values(101,'shopping cart'),(102,'surveyform'),(103,'crud');
+describe task;
+create  table Mentor(batch_id int primary key,name varchar(50),email varchar(50),task_id int,foreign key(task_id)
+references task(task_id));
+insert into Mentor(batch_id,name,email,task_id)values
+(001,'thiru','thiru@gmail.com',102),
+(002,'chandra','chandra@gmail.com',103);
+describe Mentor;
+create table Learner(Learner_id int primary key,name varchar(50),email varchar(50),
+task_id int,batch_id int,foreign key (task_id)references task(task_id),
+foreign key (batch_id)references Mentor(batch_id));
+insert into Learner(Learner_id,name,email,task_id,batch_id)values
+(1,'mega','mega@gmail.com',101,001),
+(2,'shivani','shiv@gmail.com',103,002),
+(3,'dharshini','dharsh@gmail.com',102,001);
+describe Learner;
+
